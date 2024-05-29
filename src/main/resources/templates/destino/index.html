@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinos</title>
+</head>
+<body>
+    <h1>CHEGOU NOS Destinos</h1>
+
+    <tr th:each="umDestino : ${listaDestino}">
+        <td th:text="${umDestino.descricao}"></td>
+        <td th:text="${umDestino.vaiDormir}"></td>
+        <td th:text="${umDestino.quantidadeNoite}"></td>
+        <td th:text="${umDestino.valorNoite}"></td>
+    </tr>
+</body>
+</html>

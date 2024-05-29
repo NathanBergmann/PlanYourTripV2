@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<form th:action="@{/destinos}"
+    method="post"
+    th:object="${destino}">
+
+    <label>Descrição</label>
+    <input type="text" th:field="*{descricao}"></input>
+
+    <button type="submit">Enviar</button>    
+</form>
+
+</body>
+</html>
