@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head
+    th:include="layout :: htmlhead"
+>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PlanYourTrip</title>
+    
 </head>
 <body>
     <nav th:replace="layout :: menu">(menu)</nav>
     <h1>OLAAAAAAAAAA TO AQUI POHA</h1>
 
-    <script th:replace="layout :: script"></script>
+    <div th:include="layout :: footer">(footer)</div>
 
 </body>
 </html>

@@ -3,16 +3,15 @@
     <head th:include="layout :: htmlhead"></head>
     <body>
         <nav th:replace="layout :: menu">(menu)</nav>
-        <h1>Destinos</h1>
+        <h1>Clientes</h1>
         
-        <a href="/destinos/novo" class="btn btn-primary">Novo</a>
+        <a href="/clientes/novo" class="btn btn-primary">Novo</a>
 
         <table class="table" id="tabclientes">
             <thead>
-                <th>Descrição</th>
-                <th>Passar a Noite</th>
-                <th>Quantidade de Dias</th>
-                <th>Valor por Dia</th>
+                <th>Nome</th>
+                <th>Endereço</th>
+                <th>Data Nascimento</th>
                 <th></th>
             </thead>
             <tbody>

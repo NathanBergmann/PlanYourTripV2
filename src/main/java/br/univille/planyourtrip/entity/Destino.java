@@ -5,24 +5,19 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-// import jakarta.validation.constraints.NotBlank;
-
 
 @Entity
 public class Destino {
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(length = 1000, nullable = false)
-    // @NotBlanck(message = "Campo não pode ser nullo")
     private String descricao;
-    @Column (length =  2000)
+    @Column(length = 2000)
     private Boolean vaiDormir;
-    private int quantidadeNoite;
+    private int quantidadeNoites;
     private double valorNoite;
 
-    
     public void setId(long id){
         this.id = id;
     }
@@ -39,27 +34,19 @@ public class Destino {
         return this.descricao;
     }
 
-    public void setQuantidadeNoite (int quantidade){
-        this.quantidadeNoite = quantidade;
+    public void setQuantidade (int quantidade){
+        this.quantidadeNoites = quantidade;
     }
 
-    public int getQuantidadeNoite (){
-        return this.quantidadeNoite;
+    public int getQuantidade (){
+        return this.quantidadeNoites;
     }
 
-    public void setValorNoite (Double valor){
+    public void valorNoite (Double valor){
         this.valorNoite = valor;
     }
 
     public Double getValorNoite (){
         return this.valorNoite;
-    }
-
-    public Boolean getVaiDormir (){
-        return this.vaiDormir;
-    }
-
-    public void setVaiDormir (Boolean vaiDormir){
-        this.vaiDormir = vaiDormir;
     }
 }
