@@ -7,29 +7,34 @@
             <h1>Destinos</h1>
             <form th:action="@{/destinos}"
                 method="post"
-                th:object="${cliente}">
+                th:object="${destino}">
 
                 <input type="hidden" th:field="*{id}" >
 
                 <div class="form-group">
-                    <label for="txtnome">Nome</label>
-                    <input type="text" th:field="*{nome}" 
+                    <label for="txtnome">Descricao</label>
+                    <input type="text" th:field="*{descricao}" 
                         class="form-control"
                         id="txtnome">
                 </div>
-                <div class="form-group">
-                    <label for="txtendereco">Endereço</label>
-                    <input type="text" th:field="*{endereco}" 
-                        class="form-control"
-                        id="txtendereco">
+                <div class="form-check form-switch">
+                    <label class="form-check-label" for="checkboxVaiDormir">Vai Dormir</label>
+                    <input type="checkbox"
+                        class="form-check-input"
+                        id="checkboxVaiDormir">
                 </div>
                 <div class="form-group">
-                    <label for="txtdatanascimento">Data Nascimento</label>
-                    <input type="date" th:field="*{dataNascimento}" 
+                    <label for="numberQtdNoites">Quantidade de Noites</label>
+                    <input type="number" 
                         class="form-control"
-                        id="txtdatanascimento">
+                        id="numberQtdNoites">
                 </div>
-
+                <div class="form-group">
+                    <label for="valorNoite">Valor por Noite</label>
+                    <input type="text" th:field="*{valorNoite}" 
+                        class="form-control"
+                        id="valorNoite">
+                </div>
                 <div class="form-group">
                     <button class="btn btn-primary"
                         type="submit">Enviar</button>
