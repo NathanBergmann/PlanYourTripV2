@@ -7,7 +7,7 @@
         
         <a href="/destinos/novo" class="btn btn-primary">Novo</a>
 
-        <table class="table" id="tabclientes">
+        <table class="table" id="tabdestinos">
             <thead>
                 <th>Descrição</th>
                 <th>Passar a Noite</th>
@@ -16,21 +16,22 @@
                 <th></th>
             </thead>
             <tbody>
-                <tr th:each="umCliente : ${listaClientes}">
-                    <td th:text="${umCliente.nome}"></td>
-                    <td th:text="${umCliente.endereco}"></td>
-                    <td th:text="${umCliente.dataNascimento}"></td>
-                    <td><a th:href="@{'/clientes/alterar/' + ${umCliente.id}}" 
+                <tr th:each="umDestino : ${listaDestino}">
+                    <td th:text="${umDestino.descricao}"></td>
+                    <td th:text="${umDestino.vaiDormir}"></td>
+                    <td th:text="${umDestino.quantidadeNoites}"></td>
+                    <td th:text="${umDestino.valorNoite}"></td>
+                    <td><a th:href="@{'/destinos/alterar/' + ${umDestino.id}}" 
                         class="btn btn-warning">Alterar</a>
                         <button class="btn btn-danger js-delete"
-                            th:data-id="${umCliente.id}"
+                            th:data-id="${umDestino.id}"
                         >Excluir</button>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <div class="modal" tabindex="-1" id="modalcliente">
+        <div class="modal" tabindex="-1" id="modaldestino">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
@@ -49,6 +50,6 @@
         </div>
 
         <div th:include="layout :: footer">(footer)</div>
-        <script th:src="@{/script.js}"></script>
+        <script th:src="@{/scriptDestino.js}"></script>
     </body>
 </html>

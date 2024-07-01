@@ -16,8 +16,19 @@
                     <select class="form-select"
                         id="txtDestino">
                         <option th:each="destino : ${destinos}"
-                            th:text="${destino}"
-                            th:value="${destino}">
+                            th:text="${destino.descricao}"
+                            th:value="${destino.id}">
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="txtnome">Selecione a Atividade</label>
+                    <select class="form-select"
+                        id="txtAtividade">
+                        <option th:each="atividade : ${atividades}"
+                            th:text="${atividade.nome}"
+                            th:value="${atividade.id}">
                         </option>
                     </select>
                 </div>
