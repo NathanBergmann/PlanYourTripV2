@@ -8,11 +8,17 @@
         <a href="/viagens/nova" class="btn btn-primary">Nova</a>
 
         <table class="table" id="tabclientes">
+            <thead>
+                <th>Nome</th>
+                <th>Custo Total</th>
+            </thead>
             <tbody>
                 <tr th:each="viagem : ${listaViagens}">
                     <td th:text="${viagem.nome}"></td>
-                    <td>
-                    </td>
+                    <!--<td th:each="destinoViagem: ${viagem.getDestinosViagem}">
+                        <b th:text="${destinoViagem.getDestino.getDescricao}"></b>
+                    </td>-->
+                    <td th:text="${#aggregates.sum(viagem.getDestinosViagem.![getDestino.getValorNoite * getDestino.getQuantidadeNoites])}"></td>
                 </tr>
             </tbody>
         </table>
