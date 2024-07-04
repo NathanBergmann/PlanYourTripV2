@@ -12,6 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 import br.univille.planyourtrip.entity.Viagem;
 import br.univille.planyourtrip.service.AtividadeService;
 import br.univille.planyourtrip.service.DestinoService;
+import br.univille.planyourtrip.service.ViagemService;
+
 import org.springframework.web.bind.annotation.GetMapping;
 
 
@@ -22,18 +24,25 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ViagemController {
  
     @Autowired
-    private AtividadeService atividadeService;
-
-    @Autowired
     private DestinoService destinoService;
+    @Autowired
+    private ViagemService viagemService;
+
+
+    @GetMapping
+    public ModelAndView index() {
+        var listaViagens = viagemService.getAll();
+        return new ModelAndView("viagem/index","listaViagens", listaViagens);
+    }
+    
 
     @GetMapping("/nova")
     public ModelAndView nova() {
         var viagem = new Viagem();
         HashMap<String,Object> dados = new HashMap<>();
-        dados.put("viagem",viagem);
-        dados.put("destinos",destinoService.getAll());
-        dados.put("atividades", atividadeService.getAll());
+        // dados.put("viagem",viagem);
+        // dados.put("destinos",destinoService.getAll());
+        // dados.put("atividades", atividadeService.getAll());
         return new ModelAndView("viagem/form", dados);
     }
     

@@ -7,7 +7,8 @@
             <h1>Destinos</h1>
             <form th:action="@{/destinos}"
                 method="post"
-                th:object="${destino}">
+                th:object="${destino}"
+                th:fragment="formDestinos">
 
                 <input type="hidden" th:field="*{id}" >
 

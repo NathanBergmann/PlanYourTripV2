@@ -37,10 +37,10 @@ public class AtividadeServiceImpl implements AtividadeService {
         return atividade;
     }
 
-    @Override
-    public List<Atividade> getByService(Service service){
-        
-        return;
-    }
+    // @Override //Não implementada, verificar exclusão.
+    // public List<Atividade> getByService(Service service){
+    //    List<Atividade> listaAtividades; 
+    //     return listaAtividades;
+    // }
 
 }
