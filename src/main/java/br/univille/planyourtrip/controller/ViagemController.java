@@ -41,7 +41,7 @@ public class ViagemController {
         var viagem = new Viagem();
         HashMap<String,Object> dados = new HashMap<>();
         // dados.put("viagem",viagem);
-        // dados.put("destinos",destinoService.getAll());
+         dados.put("destinos",destinoService.getAll());
         // dados.put("atividades", atividadeService.getAll());
         return new ModelAndView("viagem/form", dados);
     }
