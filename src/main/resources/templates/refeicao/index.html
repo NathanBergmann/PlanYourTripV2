@@ -3,41 +3,41 @@
     <head th:include="layout :: htmlhead"></head>
     <body>
         <nav th:replace="layout :: menu">(menu)</nav>
-        <h1>Atividades</h1>
+        <h1>Refeições</h1>
         
-        <a href="/atividades/novo" class="btn btn-primary">Novo</a>
+        <a href="/refeicoes/novo" class="btn btn-primary">Novo</a>
 
-        <table class="table" id="tabatividades">
+        <table class="table" id="tabrefeicoes">
             <thead>
                 <th>Destino</th>
-                <th>Nome</th>
+                <th>Tipo</th>
                 <th>Custo (R$)</th>
-                <th>Data Atividade</th>
+                <th>Data Refeição</th>
                 <th></th>
             </thead>
             <tbody>
-                <tr th:each="umaAtividade : ${listaAtividades}">
-                    <td th:text="${umaAtividade.destino.descricao}"></td>
-                    <td th:text="${umaAtividade.nome}"></td>
-                    <td th:text="${umaAtividade.custo}"></td>
-                    <td th:text="${umaAtividade.data}"></td>
+                <tr th:each="umaRefeicao : ${listaRefeicoes}">
+                    <td th:text="${umaRefeicao.destino.getDescricao}"></td>
+                    <td th:text="${umaRefeicao.typeRefeicao}"></td>
+                    <td th:text="${umaRefeicao.custo}"></td>
+                    <td th:text="${umaRefeicao.data}"></td>
                     <td>
-                        <a th:href="@{'/atividades/alterar/' + ${umaAtividade.id}}" class="btn btn-warning">Alterar</a>
-                        <button class="btn btn-danger js-delete"th:data-id="${umaAtividade.id}">Excluir</button>
+                        <a th:href="@{'/refeicoes/alterar/' + ${umaRefeicao.id}}" class="btn btn-warning">Alterar</a>
+                        <button class="btn btn-danger js-delete"th:data-id="${umaRefeicao.id}">Excluir</button>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <div class="modal" tabindex="-1" id="modelatividade">
+        <div class="modal" tabindex="-1" id="modelrefeicao">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title">Excluir Atividade</h5>
+                  <h5 class="modal-title">Excluir Refeição</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <p>Confirma a exclusão da atividade?</p>
+                  <p>Confirma a exclusão da refeição?</p>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
@@ -48,6 +48,6 @@
         </div>
 
         <div th:include="layout :: footer">(footer)</div>
-        <script th:src="@{/scriptAtividade.js}"></script>
+        <script th:src="@{/scriptRefeicao.js}"></script>
     </body>
 </html>
