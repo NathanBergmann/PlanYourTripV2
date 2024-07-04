@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head th:include="layout :: htmlhead"></head>
+    <body>
+        <nav th:replace="layout :: menu">(menu)</nav>
+        <h1>Viagens</h1>
+        
+        <a href="/viagens/nova" class="btn btn-primary">Nova</a>
+
+        <table class="table" id="tabclientes">
+            <tbody>
+                <tr th:each="viagem : ${listaViagens}">
+                    <td th:text="${viagem.nome}"></td>
+                    <td>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div th:include="layout :: footer">(footer)</div>
+    </body>
+</html>

@@ -36,4 +36,11 @@ public class AtividadeServiceImpl implements AtividadeService {
         repository.deleteById(id);
         return atividade;
     }
+
+    // @Override //Não implementada, verificar exclusão.
+    // public List<Atividade> getByService(Service service){
+    //    List<Atividade> listaAtividades; 
+    //     return listaAtividades;
+    // }
+
 }

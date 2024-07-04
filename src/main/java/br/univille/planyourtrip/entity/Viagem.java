@@ -9,8 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+
 @Entity
 public class Viagem {
     
@@ -19,29 +18,32 @@ public class Viagem {
     private long id;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="destino_id")
-    private List<Destino> listaDestinos = new ArrayList<>();
+    @JoinColumn(name="viagem_id")
+    private List<DestinosViagem> listaDestinos = new ArrayList<>();
 
-    
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="atividade_id")
-    private List<Atividade> listaAtividades = new ArrayList<>();
+    private String nome;
 
-    public List<Destino> getListaDestinos() {
+    public List<DestinosViagem> getDestinosViagem() {
         return listaDestinos;
     }
-
-    public List<Atividade> getListaAtividades(){
-        return listaAtividades;
-    }
-
-    public void setAtividades(List<Atividade> atividades){
-        this.listaAtividades = atividades;
-        return;
-    }
     
-    public void setDestinos(List<Destino> destinos){
+    public void setDestinos(List<DestinosViagem> destinos){
         this.listaDestinos = destinos;
         return;
+    }
+    public long getId() {
+        return id;
+    }
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setNome(String nome){
+        this.nome = nome;
+        return;
+    }
+
+    public String getNome(){
+        return this.nome;
     }
 }

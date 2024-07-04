@@ -22,30 +22,32 @@
                     </select>
                 </div>
 
-                <div class="form-group">
-                    <label for="txtnome">Selecione a Atividade</label>
-                    <select class="form-select"
+
+                <table class="table" id="tabdestinos">
+                    <thead>
+                        <th>Descrição</th>
+                        <th>Custo (R$)</th>
+                        <th>Data da Atividade</th>
+                    </thead>
+                    <tbody>
+                        <tr th:each="atividade : ${atividades}">
+                            <td th:text="${atividade.nome}"></td>
+                            <td th:text="${atividade.custo}"></td>
+                            <td th:text="${atividade.data}"></td>
+                        </tr>
+                    </tbody>
+                    <!-- <select class="form-select"
                         id="txtAtividade">
                         <option th:each="atividade : ${atividades}"
                             th:text="${atividade.nome}"
                             th:value="${atividade.id}">
                         </option>
-                    </select>
-                </div>
-                <!-- <div class="form-group">
-                    <label for="txtendereco">Endereço</label>
-                    <input type="text" th:field="*{endereco}" 
-                        class="form-control"
-                        id="txtendereco">
-                </div>
-                <div class="form-group">
-                    <label for="txtdatanascimento">Data Nascimento</label>
-                    <input type="date" th:field="*{dataNascimento}" 
-                        class="form-control"
-                        id="txtdatanascimento">
-                </div> -->
+                    </select> -->
+                </table>
 
-                <div class="form-group">
+                    <button class="btn btn-secondary">Adicionar Destino</button>
+                
+                <div class="mt-4">
                     <button class="btn btn-primary"
                         type="submit">Enviar</button>
                 </div>
