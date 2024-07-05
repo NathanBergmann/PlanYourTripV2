@@ -27,9 +27,8 @@ public class Viagem {
         return listaDestinos;
     }
     
-    public void setDestinos(List<DestinosViagem> destinos){
+    public void setDestinosViagens(List<DestinosViagem> destinos){
         this.listaDestinos = destinos;
-        return;
     }
     public long getId() {
         return id;

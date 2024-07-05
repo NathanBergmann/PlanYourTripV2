@@ -9,12 +9,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.univille.planyourtrip.entity.Destino;
+import br.univille.planyourtrip.entity.DestinosViagem;
 import br.univille.planyourtrip.entity.Viagem;
 import br.univille.planyourtrip.service.AtividadeService;
 import br.univille.planyourtrip.service.DestinoService;
 import br.univille.planyourtrip.service.ViagemService;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 
 
@@ -39,12 +42,34 @@ public class ViagemController {
     @GetMapping("/nova")
     public ModelAndView nova() {
         var viagem = new Viagem();
+        var destinosViagem = new DestinosViagem();
         HashMap<String,Object> dados = new HashMap<>();
-        // dados.put("viagem",viagem);
-         dados.put("destinos",destinoService.getAll());
-        // dados.put("atividades", atividadeService.getAll());
+        dados.put("viagem",viagem);
+        dados.put("destinosViagem", destinosViagem);
+        dados.put("destinos",destinoService.getAll());
         return new ModelAndView("viagem/form", dados);
     }
     
+    @PostMapping(params = "save")
+    public ModelAndView save(Viagem viagem){
+
+        viagemService.save(viagem);        
+
+        return new ModelAndView("redirect:/viagens");
+    }
+
+    @PostMapping(params = "inciDestViagem")
+    public ModelAndView save(Viagem viagem,
+                             DestinosViagem destinosViagem){
+
+        viagem.getDestinosViagem().add(destinosViagem);        
+
+        HashMap<String,Object> dados = new HashMap<>();
+        dados.put("viagem",viagem);
+        dados.put("destinosViagem",new DestinosViagem());
+        dados.put("destinos", destinoService.getAll());
+        return new ModelAndView("viagem/form",dados);
+
+    }
 
 }
