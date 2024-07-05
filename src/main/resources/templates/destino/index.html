@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
     <head th:include="layout :: htmlhead"></head>
     <body>
+      <main class="container">
         <nav th:replace="layout :: menu">(menu)</nav>
         <h1>Destinos</h1>
         
@@ -51,5 +52,6 @@
 
         <div th:include="layout :: footer">(footer)</div>
         <script th:src="@{/scriptDestino.js}"></script>
-    </body>
+      </main>
+      </body>
 </html>

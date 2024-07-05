@@ -5,50 +5,64 @@
         <main class="container">
             <nav th:replace="layout :: menu">(menu)</nav>
             <h1>Viagem</h1>
-            <!-- <form th:action="@{/destinos}"
+            <form th:action="@{/viagens}"
                 method="post"
-                th:object="${cliente}"> -->
+                th:object="${viagem}">
 
-                <!-- <input type="hidden" th:field="*{id}" > -->
+                <input type="hidden" th:field="*{id}" >
 
                 <div class="form-group">
-                    <label for="txtnome">Selecione o Destino</label>
-                    <select class="form-select"
-                        id="txtDestino">
+                    <label for="txtName">Nome</label>
+                    <input type="text" id="txtName"
+                        class="form-control"
+                        th:field="*{nome}">
+                </div>
+
+                <div class="card">
+                    <div class="cart-body">
+                        <h5 class="cart-title">
+                            Destinos da Viagem
+                        </h5>
+                        <table class="table">
+                            <tbody>
+                                <tr th:each="destino, stat : *{destinosViagem}">
+                                    <td th:text="${destino.destino?.descricao}"></td>
+                                    <input type="hidden" 
+                                        th:field="*{destinosViagem[__${stat.index}__].destino}">
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="cart">
+                    <div class="cart-body">
+                        <h5 class="cart-title">Novo Destino na Viagem</h5>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtDestino">Destino</label>
+                        <select 
+                            class="form-select"
+                            id="txtDestino"
+                            th:field="${destinosViagem.destino}">
                         <option th:each="destino : ${destinos}"
                             th:text="${destino.descricao}"
                             th:value="${destino.id}">
                         </option>
                     </select>
+                    </div>
+                   
+                    <div class="form-group">
+                        <button type="submit" 
+                        name="inciDestViagem"
+                        class="btn btn-primary">Adicionar Destino</button>
+                    </div>
                 </div>
 
-
-                <table class="table" id="tabdestinos">
-                    <thead>
-                        <th>Descrição</th>
-                        <th>Custo (R$)</th>
-                        <th>Data da Atividade</th>
-                    </thead>
-                    <tbody>
-                        <tr th:each="atividade : ${atividades}">
-                            <td th:text="${atividade.nome}"></td>
-                            <td th:text="${atividade.custo}"></td>
-                            <td th:text="${atividade.data}"></td>
-                        </tr>
-                    </tbody>
-                    <!-- <select class="form-select"
-                        id="txtAtividade">
-                        <option th:each="atividade : ${atividades}"
-                            th:text="${atividade.nome}"
-                            th:value="${atividade.id}">
-                        </option>
-                    </select> -->
-                </table>
-
-                    <button class="btn btn-secondary">Adicionar Destino</button>
-                
                 <div class="mt-4">
-                    <button class="btn btn-primary"
+                    <button 
+                        class="btn btn-primary"
+                        name="save"
                         type="submit">Enviar</button>
                 </div>
 
